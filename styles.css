@@ -1,0 +1,70 @@
+*{box-sizing: border-box;}
+:root{
+    /* Primary Colours */
+
+    /* Secondary Colours */
+
+}
+body{
+    font-family: ;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main aside"
+    "footer footer footer";
+
+    background-image: url(https://picsum.photos/1920/1080);
+    background-repeat: no-repeat;
+    /* margin: 0; */
+}
+
+/* HEADER */
+header{
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+}
+ul li{
+    display: inline;
+}
+ul li a{
+    padding: 2rem;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+/* MAIN */
+main{
+    grid-area: main;
+}
+#hero-image{
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+#overview{
+    display: flex;
+}
+.project-card{
+    /* how do I make it so that when I hover over this card, it reveals information about the project? */
+    background-image: url(https://picsum.photos/150);
+    background-repeat: no-repeat;
+
+    /* maybe make it a clickable anchor as well as having a button that can take you down to the project section of the page. I don't want to send my viewer away from my page but I'll make sure to limit my file size to 1.4mb and lazy load images as well.  */
+}
+.backside{
+    display: none;
+}
+.project-card:hover{
+    .backside{
+        display: block;
+    }
+}
+
+}
+
+/* FOOTER */
+footer{
+    grid-area: footer;
+}
