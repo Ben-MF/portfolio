@@ -1,5 +1,7 @@
 *{box-sizing: border-box;}
 
+/* Desktop First Design */
+
 body{
     font-family: ;
     display: grid;
@@ -43,21 +45,29 @@ main{
         font-style: italic;
     }
 }
-#overview{
+#project-overview{
     display: flex;
+    gap: 2rem;
 }
 .project-card{
     position: relative;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     /* how do I make it so that when I hover over this card, it reveals information about the project? */
     /* maybe make it a clickable anchor as well as having a button that can take you down to the project section of the page. I don't want to send my viewer away from my page but I'll make sure to limit my file size to 1.4mb and lazy load images as well.  */
+    img{
+        border-radius: 10px;
+    };
 }
 .backside{
     display: none;
+    border-radius: 10px;
 }
 .project-card:hover{
     transform: translateY(-10px);
-    box-shadow: 0 10px 10px black;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
     .backside{
         background-color: rgba(0, 0, 0, .9);
         display: block;
@@ -68,9 +78,21 @@ main{
     }
 }
 
+#storyhive .frontside{
+    background-color: black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
 }
+
 
 /* FOOTER */
 footer{
     grid-area: footer;
 }
+
+/* Tablet Design */
+
+
+/* Mobile Design */
