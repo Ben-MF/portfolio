@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fondamento:ital@0;1&family=Merienda:wght@300..900&display=swap');
+
 *{box-sizing: border-box;}
 
 /* Desktop First Design */
 
 body{
-    font-family: ;
+    font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
     display: grid;
     grid-template-areas: 
     "header header header"
@@ -26,37 +28,75 @@ header{
 ul li{
     display: inline;
 }
-ul li a{
+ul li button{
+    font-family: inherit;
+    font-size: 3rem;
+    background-color: #343434;
+    color: white;
+    padding: 1rem;
+    border-radius: 20px;
+}
+/* ul li a{
     padding: 2rem;
     justify-content: center;
     color: white;
     text-decoration: none;
-}
+    font-size: 2rem;
+} */
 
 /* MAIN */
 main{
-    width: 80%;
-    margin: 0 auto;
     grid-area: main;
 }
-#hero-image{
-    font-size: 3rem;
-    h1 span{
-        font-style: italic;
+@keyframes fadeUp{
+    from{ 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+#hero_first-name,#hero_last-name,#hero_tag,.project-card{
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+}
+#hero{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 5rem;
+    h1{
+        font-family: century gothic;
+        font-weight: lighter;
+        margin-bottom: 0;
+    }
+}
+#hero_first-name{
+    animation-delay: 0.2s;
+}
+#hero_last-name{
+    font-size: 6rem;
+    animation-delay: 0.4s;
+}
+#hero_tag{
+    animation-delay: 0.6s;
+    margin-top: 4rem;
+}
+
 #project-overview{
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
 .project-card{
+    background-color: black;
     position: relative;
-    align-items: center;
     border: 2px solid white;
     border-radius: 10px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-    /* how do I make it so that when I hover over this card, it reveals information about the project? */
-    /* maybe make it a clickable anchor as well as having a button that can take you down to the project section of the page. I don't want to send my viewer away from my page but I'll make sure to limit my file size to 1.4mb and lazy load images as well.  */
+    display: flex;
+    align-items: center;
     img{
         border-radius: 10px;
     };
@@ -77,22 +117,65 @@ main{
         height: 100%;
     }
 }
+#storyhive{animation-delay: 0.8s;}
+#chipn{animation-delay: 1s;}
+#pizza-form{animation-delay: 1.2s;}
 
 #storyhive .frontside{
-    background-color: black;
-    height: 100%;
+    height: 586px;
     display: flex;
     align-items: center;
     border-radius: 10px;
+}
+
+#chipn img{
+    margin: 0 1.5rem;
 }
 
 
 /* FOOTER */
 footer{
     grid-area: footer;
+    padding: 1rem 1rem 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    a{
+        color: white;
+    }
 }
 
 /* Tablet Design */
+@media screen and (max-width:1400px){
+    #hero{
+        font-size: 3rem;
+    }
+    #hero_first-name{
+        font-size: 7rem;
+    }
+    #hero_last-name{
+        font-size: 5rem;
+    }
+    #hero_tag{
+        margin-top: 1rem;
+    }
 
+    #project-overview{
+        flex-wrap: wrap;
+    }
+
+}
 
 /* Mobile Design */
+@media screen and (max-width: 1000px){
+    #hero{
+        font-size: 3rem;
+        width: 100%;
+        padding: 0 4rem;
+    }
+    #project-overview{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
