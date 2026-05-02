@@ -186,12 +186,13 @@ font-size: 2rem;
     display: flex;
     gap: 2rem;
     width: 100vw;
-    height: fit-content;
+    height:28rem;
     padding-left: 2rem;
 
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
+    align-items: center;
 
     /* Defining Container */
     container-type: scroll-state;
@@ -211,11 +212,18 @@ font-size: 2rem;
     width: 15rem;
     height: 25rem;
     background-color: var(--dark-grey);
+    border-radius: 8px;
 
     position: relative;
 }
 .frontside{
     background-color: black;
+    height: inherit;
+    border-radius: 8px;
+    
+    img,video{
+        border-radius: 8px;
+    }
 }
 .backside{
     padding: 1rem;
@@ -240,9 +248,36 @@ font-size: 2rem;
     /* .frontside{
         display: none;
     } */
-    .backside{
+  /*   .backside{
         display: block
+    } */
+}
+
+.selected-card{
+    box-shadow: 0 0 20px rgba(135, 207, 235, 0.5);
+    transition: box-shadow 1s ease forwards;
+    transform: scale(105%);
+}
+
+/* ========= Selected Project Info Styling */
+#selected-project{
+    margin: 1rem;
+
+    h3{
+        text-transform: uppercase;
+        font-size: 1rem;
     }
+    h3::after{
+        content: ":";
+    }
+    h4{
+        font-size: 2rem;
+        margin: 0;
+    }
+    .tools,.role{
+        font-style: italic;
+    }
+
 }
 
 
