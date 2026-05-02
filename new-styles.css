@@ -1,0 +1,331 @@
+*{box-sizing: border-box;}
+
+:root{
+    /* Color Variables */
+    --light-grey: #4e4e4e;
+    --grey: #343434;
+    --dark-grey: #1a1a1a;
+    --dark-grey-alpha: rgba(26, 26, 26,0.75);
+}
+
+@keyframes fadeUp{
+    from{ 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+================ MOBILE FIRST 
+Making a portfolio to showcase the skills I've learned in my first year as an Interactive Design student majoring in Web Development.
+*/
+body{
+    background: linear-gradient( to bottom right, var(--light-grey), var(--grey), var(--dark-grey));
+    color: white;
+
+    margin: 0 0 5rem 0;
+}
+
+/* Design Classes */
+.button{
+    background-color: var(--grey);
+    color: white;
+}
+
+/* 
+===== MASTHEAD
+For Mobile Design, this should stick to the bottom, making it easier to navigate though the menu on your phone one-handed.
+*/
+header{
+    position: relative;
+    z-index: 999;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    
+    background-color: var(--dark-grey);
+    
+    position: fixed;
+    bottom: 0;
+}
+button#show-contact-form{
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+button#toggle{
+    font-size: 2rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+nav{
+    background-color: var(--dark-grey);
+    position:absolute;
+    bottom: 100%;
+    z-index: 999;
+    width: 50%;
+    right: 0;
+    display: none;
+}
+nav ul{
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+nav ul li{
+    display: block;
+    list-style: none;
+}
+nav ul li a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    padding: 0.5rem;
+}
+#menu.active{
+    display: flex;
+}
+
+/* ========= CONTACT FORM */
+dialog{
+    background-color: #1a1a1a;
+    color: white;
+
+    border: none;
+    width: 100%;
+}
+dialog::backdrop{
+    background-color: var(--dark-grey-alpha);
+}
+dialog div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.required{
+    color: red;
+}
+button#close-contact-form{
+    border-radius: 50%;
+    padding: 0.5rem 0.75rem;
+}
+fieldset{
+    margin-bottom: 0.5rem;
+}
+fieldset#info{
+    border: #4e4e4e;
+}
+fieldset#contact-reasons{
+    border: none;
+    padding-left: 0;
+}
+input[type="text"], input[type="email"]{
+    padding: 0.25rem;
+}
+label{
+    display: block;
+    margin: 0.25rem 0;
+}
+input[type="radio"]+label{
+    display: inline;
+}
+textarea{
+    width: 100%;
+    height: 5rem;
+    margin-bottom: 0.5rem;
+}
+button#submit-form{
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    /* Get this to display in the center of the modal */
+}
+
+
+/* ============ HOME PAGE =========== */
+/* ==== HERO */
+#hero{
+    padding: 0 1rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+#hero_first-name{
+    font-size: 3rem;
+    text-transform: uppercase;
+
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+#hero_last-name{
+font-size: 2rem;
+
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+#hero_tag{
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+/* ==== CAROUSEL: Project Selection */
+#project-carousel{
+    display: flex;
+    gap: 2rem;
+    width: 100vw;
+    height: fit-content;
+    padding-left: 2rem;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+
+    /* Defining Container */
+    container-type: scroll-state;
+    container-name: project-carousel;
+}
+
+/* Add in UX Scroll Direction buttons for the carousel */
+@container project-carousel scroll-state(scrollable: right){
+
+    #project-carousel::scroll-button(right){
+
+
+    }
+}
+
+.project-card{ 
+    width: 15rem;
+    height: 25rem;
+    background-color: var(--dark-grey);
+
+    position: relative;
+}
+.frontside{
+    background-color: black;
+}
+.backside{
+    padding: 1rem;
+    background-color: var(--dark-grey-alpha);
+    position: absolute;
+    top:0;
+    height: inherit;
+    display: none;
+}
+.status{
+    position: absolute;
+    bottom: 0;
+    left: 4rem;
+    padding: 0.5rem 2rem;
+    margin-bottom: 0;
+
+    background-color: white;
+    color: var(--dark-grey);
+}
+
+.project-card:hover{
+    /* .frontside{
+        display: none;
+    } */
+    .backside{
+        display: block
+    }
+}
+
+
+/* .project-card{
+    position: relative;
+    width: 20rem;
+    height: 32rem;
+    
+    background-color: black;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+    display: flex;
+    align-items: center;
+
+    img{
+        border-radius: 10px;
+    };
+}
+.backside{
+    display: none;
+    border-radius: 10px;
+}
+.project-card:hover{
+
+    .backside{
+        background-color: rgba(0, 0, 0, .9);
+        padding: 2rem;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        font-size: 1.5rem;
+        display: grid;
+        grid-template-rows: 1fr 5fr 1fr;
+        a{
+            justify-self: end;
+            align-self: center;
+            background-color: #343434;
+            color: white;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+
+        }
+    }
+}
+#storyhive{animation-delay: 0.8s;}
+#chipn{animation-delay: 1s;}
+#pizza-form{animation-delay: 1.2s;}
+
+#storyhive .frontside{
+    height: 586px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#chipn img{
+    margin: 0 1.5rem;
+}
+ */
+
+
+
+/* ========== portfolio.html ============== */
+/* #selected-project{
+    margin: 0 1rem;
+
+    h1{
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    h3{
+        font-size: 1.5rem;
+    }
+    img{
+        width: 100%;
+    }
+
+} */
